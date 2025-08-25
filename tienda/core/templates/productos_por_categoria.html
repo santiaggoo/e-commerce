@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+{% extends "tienda.html" %}
+{% load static %}
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -6,49 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-    <div class="container-fluid">
-        <div class="row w-100 align-items-center">
-            <!-- Columna izquierda: Categorías -->
-            <div class="col-auto">
-                <div class="dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categorías
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
-                        {% for categoria in categorias %}
-                            <li>
-                                <a class="dropdown-item" href={% url "productos_por_categoria" categoria.id %}>{{ categoria.nombre }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Columna central: Título -->
-            <div class="col text-center">
-                <a class="navbar-brand" href="#">Mi Tienda</a>
-            </div>
-
-            <!-- Columna derecha: Inicio + hamburguesa -->
-            <div class="col-auto ms-auto d-flex align-items-center">
-                <!-- Botón hamburguesa (solo visible en móviles) -->
-                <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#menuGeneral" aria-controls="menuGeneral" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Menú colapsable -->
-                <div class="collapse navbar-collapse" id="menuGeneral">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href={% url "ver_carrito" %}>Carrito</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
- </nav>
+   
+  {% block content %}
+  {{block.super}} 
   <div class="container">
         <h1 class="mb-4">Productos</h1>
         <div class="row">
@@ -74,4 +35,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+{% endblock content %}
 </html>
