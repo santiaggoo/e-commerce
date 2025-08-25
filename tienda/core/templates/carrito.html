@@ -1,182 +1,14 @@
-<!DOCTYPE html>
+{% extends "tienda.html" %}
+{% load static %}
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Tu carrito</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 40px;
-            color: #333;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 2.2em;
-            margin-bottom: 30px;
-            color: #2c3e50;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        .table th, .table td {
-            padding: 14px;
-            border-bottom: 1px solid #e0e0e0;
-            text-align: center;
-        }
-
-        .table th {
-            background-color: #f0f4f8;
-            font-weight: 600;
-            color: #34495e;
-        }
-
-        .table td {
-            font-size: 0.95em;
-        }
-
-        .btn {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-danger {
-            background-color: #e74c3c;
-            color: white;
-        }
-
-        .btn-danger:hover {
-            background-color: #c0392b;
-        }
-
-        .btn-secondary {
-            background-color: #7f8c8d;
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background-color: #636e72;
-        }
-
-        .btn-success {
-            background-color: #27ae60;
-            color: white;
-        }
-
-        .btn-success:hover {
-            background-color: #219150;
-        }
-
-        .actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 30px;
-        }
-
-        .total {
-            font-size: 1.2em;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-
-        .empty-message {
-            text-align: center;
-            font-size: 1.1em;
-            color: #888;
-        }
-
-        .empty-message a {
-            color: #2980b9;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .empty-message a:hover {
-            text-decoration: underline;
-        }
-        body {
-            margin: 0px;
-            padding: 0px;
-            color: #333;
-        }
-    </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-    <div class="container-fluid">
-        <div class="row w-100 align-items-center">
-            <!-- Columna izquierda: Categorías -->
-            <div class="col-auto">
-                <div class="dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categorías
-                    </a>
-                     <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
-                        {% for categoria in categorias %}
-                            <li>
-                                <a class="dropdown-item" href={% url "productos_por_categoria" categoria.id %}>{{ categoria.nombre }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Columna central: Título -->
-            <div class="col text-center">
-                <a class="navbar-brand" href="#">Mi Tienda</a>
-            </div>
-
-            <!-- Columna derecha: Inicio + hamburguesa -->
-            <div class="col-auto ms-auto d-flex align-items-center">
-                <!-- Botón hamburguesa (solo visible en móviles) -->
-                <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#menuGeneral" aria-controls="menuGeneral" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Menú colapsable -->
-                <div class="collapse navbar-collapse" id="menuGeneral">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href={% url "tienda" %}>Inicio</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
-
-    <!-- Contenido principal -->
-
-
-
+{% block content %}
+    {{block.super}}
     <div class="container">
         <h1>🛒 Tu carrito de compras</h1>
 
@@ -216,5 +48,5 @@
         {% endif %}
     </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+{% endblock content %}
 </html>
