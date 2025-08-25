@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedido Exitoso</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+
+    <div class="container text-center mt-5">
+        <h1 class="text-success">Tu carrito está vacío</h1>
+        <p><strong>Total:</strong> ${{ pedido.total }}</p>
+        <a href="{% url 'tienda' %}" class="btn btn-primary mt-3">Volver a la tienda</a>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
